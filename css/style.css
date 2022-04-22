@@ -21,6 +21,9 @@ header > h1{
     font-size:1.8em;
     font-weight: 900;
 }
+main{
+    position: relative;
+}
 ul{
     margin-top: 40px;
     list-style: none;
@@ -31,11 +34,11 @@ ul > li{
     margin-top: 10px;
 }
 .fa-circle-check{
-    color: green;
+    color: darkgreen;
     margin-left: 15px;
 }
 .fa-circle-xmark{
-    color: red;
+    color: rgb(251, 72, 72);
     margin-left: 15px;
 }
 .fa-circle-minus{
@@ -53,6 +56,22 @@ i{
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
+    background-color: darkgreen;
+    color: #DDD;
+    transition: 0.3s;
+}
+#addBtn:hover{
+    color: white;
+    background-color: green;
+}
+input{
+    background-color: darkseagreen;
+    padding: 5px;
+    border-radius: 5px;
+    border: 3px solid darkgreen;
+}
+input::placeholder{
+    color: #EEE;
 }
 #new-item{
     margin-left: 20px;
@@ -71,8 +90,33 @@ i{
     font-size: 1.5em;
 }
 #totalBox span:last-of-type{
-    color: red;
+    color: rgb(251, 72, 72);
 }
 .sbarrato{
     text-decoration:line-through;
+}
+.testo-li{
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.svuota-Btn{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(251, 72, 72);
+    border:2px solid black;
+    transition: 0.25s;
+    color: #555;
+}
+.svuota-Btn > i{
+    vertical-align: baseline;
+    font-size: 0.8em;
+    margin-right: 10px;
+}
+.svuota-Btn:hover{
+    color: black;
+    background-color: rgb(249, 30, 30);
 }

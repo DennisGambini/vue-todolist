@@ -58,13 +58,18 @@
                     </span>
 
                     <!-- testo nella lista -->
-                    <span :class="item.check === true ? 'sbarrato' : '' " @click="item.check === true ? item.check = false : item.check = true">{{item.nome}} - {{item.prezzoUnit}} &euro;</span>
+                    <span class="testo-li" :class="item.check === true ? 'sbarrato' : '' " @click="item.check === true ? item.check = false : item.check = true">{{item.nome}} - {{item.prezzoUnit}} &euro;</span>
                     <!-- check icon -->
                     <i class="fa-solid fa-circle-check" v-if="item.check === true" title="Ce l'ho"></i>
                     <!-- cross icon -->
                     <i class="fa-solid fa-circle-xmark" v-else title="Non ce l'ho"></i>
                 </li>
             </ul>
+
+            <button class="svuota-Btn" @click="svuotaLista">
+                <i class="fa-solid fa-trash-can"></i>
+                <span>Svuota la lista</span>
+            </button>
 
             
         </main>

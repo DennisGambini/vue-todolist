@@ -68,6 +68,9 @@ const app = new Vue({
         },
         deleteItem(index){
             this.listaSpesa.splice(index, 1)          
+        },
+        svuotaLista(){
+            this.listaSpesa = [];
         }
     },
     mounted(){
