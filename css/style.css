@@ -10,6 +10,9 @@ body{
     background-color: antiquewhite;
     
 }
+
+
+/* HEADER */
 header{
     text-align: center;
     padding: 20px 0;
@@ -21,6 +24,21 @@ header > h1{
     font-size:1.8em;
     font-weight: 900;
 }
+/* display totale */
+#totalBox{
+    position: fixed;
+    top: 15px;
+    right: 15px;
+}
+#totalBox span{
+    font-size: 1.5em;
+}
+#totalBox span:last-of-type{
+    color: rgb(251, 72, 72);
+}
+
+
+/* MAIN */
 main{
     position: relative;
 }
@@ -32,6 +50,18 @@ ul{
 }
 ul > li{
     margin-top: 10px;
+}
+.testo-li{
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.sbarrato{
+    text-decoration:line-through;
+}
+
+/* icone */
+i{
+    vertical-align: middle;
 }
 .fa-circle-check{
     color: darkgreen;
@@ -47,8 +77,23 @@ ul > li{
     margin-right: 20px;
     cursor: pointer;
 }
-i{
-    vertical-align: middle;
+
+/* form */
+#new-item{
+    margin-left: 20px;
+    margin-top: 40px;
+}
+input{
+    background-color: darkseagreen;
+    padding: 5px;
+    border-radius: 5px;
+    border: 3px solid darkgreen;
+}
+input::placeholder{
+    color: #EEE;
+}
+.check{
+    margin-top: 20px;
 }
 #addBtn{
     display: block;
@@ -64,41 +109,8 @@ i{
     color: white;
     background-color: green;
 }
-input{
-    background-color: darkseagreen;
-    padding: 5px;
-    border-radius: 5px;
-    border: 3px solid darkgreen;
-}
-input::placeholder{
-    color: #EEE;
-}
-#new-item{
-    margin-left: 20px;
-    margin-top: 40px;
-}
-.check{
-    margin-top: 20px;
-}
 
-#totalBox{
-    position: fixed;
-    top: 15px;
-    right: 15px;
-}
-#totalBox span{
-    font-size: 1.5em;
-}
-#totalBox span:last-of-type{
-    color: rgb(251, 72, 72);
-}
-.sbarrato{
-    text-decoration:line-through;
-}
-.testo-li{
-    text-transform: capitalize;
-    cursor: pointer;
-}
+/* bottone svuota lista */
 .svuota-Btn{
     position: absolute;
     top: 0;
