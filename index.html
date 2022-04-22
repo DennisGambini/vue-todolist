@@ -39,9 +39,9 @@
                 <!-- check -->
                 <div class="check">
                     <label for="check">Ce l'hai?</label>
-                    <input type="radio" name="check" id="check-true" v-model="nuovoCheck" value="true">
+                    <input type="radio" name="check" id="check-true" v-model="nuovoCheck" :value="true">
                     <span>si</span>
-                    <input type="radio" name="check" id="check-false" v-model="nuovoCheck" value="false">
+                    <input type="radio" name="check" id="check-false" v-model="nuovoCheck" :value="false">
                     <span>no</span>
                 </div>
                 
@@ -52,18 +52,17 @@
             <!-- LISTA -->
             <ul>
                 <li v-for="(item,index) in listaSpesa" :id="index" :key="item.id">
-
                     <!-- delete icon -->
-                    <span class="delete" title="delete">
+                    <span class="delete" title="delete" @click="deleteItem(index); refreshTotal()">
                         <i class="fa-solid fa-circle-minus"></i>
                     </span>
 
                     <!-- testo nella lista -->
-                    <span>{{item.nome}} - {{item.prezzoUnit}} &euro;</span>
+                    <span :class="item.check === true ? 'sbarrato' : '' " @click="item.check === true ? item.check = false : item.check = true">{{item.nome}} - {{item.prezzoUnit}} &euro;</span>
                     <!-- check icon -->
                     <i class="fa-solid fa-circle-check" v-if="item.check === true" title="Ce l'ho"></i>
                     <!-- cross icon -->
-                    <i class="fa-solid fa-circle-xmark" v-if="item.check === false" title="Non ce l'ho"></i>
+                    <i class="fa-solid fa-circle-xmark" v-else title="Non ce l'ho"></i>
                 </li>
             </ul>
 

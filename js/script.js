@@ -30,39 +30,47 @@ const app = new Vue({
         ],
         checkIcon: '<i class="fa-solid fa-circle-check"></i>',
         crossIcon: '<i class="fa-solid fa-circle-xmark"></i>',
-        itemId:'0',
+        // itemId:'0',
         nuovoNome: '',
         nuovoPrezzo: null,
         nuovoCheck: '',
-        totaleSpesa: 0,
+        totaleSpesa: null,
     },
     methods:{
         pushItem(){
-            console.log("push")
-            console.log('nuovo item: ',this.nuovoNome)
+            console.log("pushItem")
             const newItem = {
                 nome: this.nuovoNome,
                 prezzoUnit: parseFloat(this.nuovoPrezzo),
                 check: this.nuovoCheck,
             }
-            console.log("we, nuovo prezzo è: ", this.nuovoPrezzo)
-            console.log("questo check: ",newItem.check)
+            if(isNaN(newItem.prezzoUnit)){
+                newItem.prezzoUnit = 0;
+            }
+            console.log("newItem: ", newItem.nome, newItem.prezzoUnit, newItem.check)
             this.listaSpesa.push(newItem);
             this.nuovoNome = '';
             this.nuovoPrezzo = '';
+            this.nuovoCheck = '';
             this.refreshTotal();
+            
         },
-        refreshTotal(){//questo non funziona
-            console.log("refresh")
-            console.log(this.listaSpesa)
+        refreshTotal(){
+            console.log("refreshTotal")
+            this.totaleSpesa = 0;
             this.listaSpesa.forEach((item)=>{
                 let numero = item.prezzoUnit;
                 if(numero === NaN){
                     numero = 0;
                 }
-                console.log(numero) 
                 this.totaleSpesa += numero;
             })
+        },
+        deleteItem(index){
+            this.listaSpesa.splice(index, 1)          
         }
+    },
+    mounted(){
+        this.refreshTotal();
     }
 })

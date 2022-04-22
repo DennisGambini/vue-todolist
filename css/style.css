@@ -17,6 +17,10 @@ header{
     color: darkgreen;
     border-bottom: 4px solid rgb(4, 140, 4);
 }
+header > h1{
+    font-size:1.8em;
+    font-weight: 900;
+}
 ul{
     margin-top: 40px;
     list-style: none;
@@ -62,4 +66,13 @@ i{
     position: fixed;
     top: 15px;
     right: 15px;
+}
+#totalBox span{
+    font-size: 1.5em;
+}
+#totalBox span:last-of-type{
+    color: red;
+}
+.sbarrato{
+    text-decoration:line-through;
 }
