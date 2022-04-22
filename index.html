@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Square+Peg&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/e6654805a9.js" crossorigin="anonymous"></script>
     <!-- Css -->
@@ -15,7 +19,59 @@
 <body>
 
     <div id="app">
-        
+        <header>
+            <h1>Lista della spesa</h1>
+            <div id="totalBox">
+                <span>Il totale è : </span>
+                <span id="totale">{{totaleSpesa}}</span>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- FORM -->
+
+            <div @keyup.enter="pushItem(); refreshTotal()" id="new-item">
+                <!-- nome -->
+                <input type="text" name="getName" id="getName" placeholder="Nuovo Item" v-model="nuovoNome">
+                <!-- prezzo -->
+                <input type="text" name="getPrice" id="getPrice" placeholder="Prezzo" v-model="nuovoPrezzo">
+                <!-- check -->
+                <div class="check">
+                    <label for="check">Ce l'hai?</label>
+                    <input type="radio" name="check" id="check-true" v-model="nuovoCheck" value="true">
+                    <span>si</span>
+                    <input type="radio" name="check" id="check-false" v-model="nuovoCheck" value="false">
+                    <span>no</span>
+                </div>
+                
+                <!-- bottone push -->
+                <button @click="pushItem" @keyup.enter="pushItem(); refreshTotal()" id="addBtn">Aggiungi alla spesa</button>
+            </div>
+
+            <!-- LISTA -->
+            <ul>
+                <li v-for="(item,index) in listaSpesa" :id="index" :key="item.id">
+
+                    <!-- delete icon -->
+                    <span class="delete" title="delete">
+                        <i class="fa-solid fa-circle-minus"></i>
+                    </span>
+
+                    <!-- testo nella lista -->
+                    <span>{{item.nome}} - {{item.prezzoUnit}} &euro;</span>
+                    <!-- check icon -->
+                    <i class="fa-solid fa-circle-check" v-if="item.check === true" title="Ce l'ho"></i>
+                    <!-- cross icon -->
+                    <i class="fa-solid fa-circle-xmark" v-if="item.check === false" title="Non ce l'ho"></i>
+                </li>
+            </ul>
+
+            
+        </main>
+
+
+
     </div>
 
     <script src="js/script.js"></script>

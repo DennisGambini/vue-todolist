@@ -2,4 +2,64 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Square Peg', cursive;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+body{
+    background-color: antiquewhite;
+    
+}
+header{
+    text-align: center;
+    padding: 20px 0;
+    background-color: lightblue;
+    color: darkgreen;
+    border-bottom: 4px solid rgb(4, 140, 4);
+}
+ul{
+    margin-top: 40px;
+    list-style: none;
+    margin-left: 100px;
+    
+}
+ul > li{
+    margin-top: 10px;
+}
+.fa-circle-check{
+    color: green;
+    margin-left: 15px;
+}
+.fa-circle-xmark{
+    color: red;
+    margin-left: 15px;
+}
+.fa-circle-minus{
+    color: #666;
+    margin-left: -40px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+i{
+    vertical-align: middle;
+}
+#addBtn{
+    display: block;
+    margin-top: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#new-item{
+    margin-left: 20px;
+    margin-top: 40px;
+}
+.check{
+    margin-top: 20px;
+}
+
+#totalBox{
+    position: fixed;
+    top: 15px;
+    right: 15px;
 }
