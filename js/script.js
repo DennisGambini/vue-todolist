@@ -100,7 +100,7 @@ const app = new Vue({
             console.log("newItem: ", newItem.nome, newItem.prezzoUnit, newItem.check)
 
             this.categorie[this.indiceGenerale].lista.push(newItem)
-            console.log("categoria attiva: ",this.categoriaAttiva)
+            //console.log("categoria attiva: ",this.categoriaAttiva)
             
             this.nuovoNome = '';
             this.nuovoPrezzo = '';
@@ -138,7 +138,7 @@ const app = new Vue({
             console.log('indice generale: ',this.indiceGenerale)
         }
     },
-    
+
     mounted(){
         this.categoriaAttiva.nome = 'Spesa';
         this.refreshTotal();

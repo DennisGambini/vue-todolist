@@ -27,8 +27,12 @@ header > h1{
 /* select */
 #categorie{
     position: fixed;
-    top: 60px;
+    top: 55px;
     left: 20px;
+    background-color: #8FBC8F;
+    border-radius: 5px;
+    border: 2px solid darkgreen;
+    cursor: pointer;
 }
 .categorie-label{
     position: fixed;
