@@ -20,7 +20,13 @@
 
     <div id="app">
         <header>
-            <h1>Lista della spesa</h1>
+            <!-- select -->
+            <label for="categorie" class="categorie-label">Seleziona la categoria</label>
+            <select name="Categorie" id="categorie" v-model="categoriaAttiva" @change="getValue(); refreshTotal()">
+                <option v-for="(opt,index) in categorie" :value="opt">{{opt.nome}}</option>
+            </select>
+            <h1>{{categoriaAttiva.nome}}</h1>
+
             <div id="totalBox">
                 <span>Il totale è : </span>
                 <span id="totale">{{totaleSpesa}}</span>
@@ -49,9 +55,43 @@
                 <button @click="pushItem" @keyup.enter="pushItem(); refreshTotal()" id="addBtn">Aggiungi alla spesa</button>
             </div>
 
-            <!-- LISTA -->
-            <ul>
-                <li v-for="(item,index) in listaSpesa" :id="index" :key="item.id">
+            <!-- LISTA SPESA-->
+            <ul v-if="categoriaAttiva.nome === 'Spesa' ">
+                <li v-for="(item,index) in categorie[0].lista" :id="index" :key="item.id">
+                    <!-- delete icon -->
+                    <span class="delete" title="delete" @click="deleteItem(index); refreshTotal()">
+                        <i class="fa-solid fa-circle-minus"></i>
+                    </span>
+
+                    <!-- testo nella lista -->
+                    <span class="testo-li" :class="item.check === true ? 'sbarrato' : '' " @click="item.check === true ? item.check = false : item.check = true">{{item.nome}} - {{item.prezzoUnit}} &euro;</span>
+                    <!-- check icon -->
+                    <i class="fa-solid fa-circle-check" v-if="item.check === true" title="Ce l'ho"></i>
+                    <!-- cross icon -->
+                    <i class="fa-solid fa-circle-xmark" v-else title="Non ce l'ho"></i>
+                </li>
+            </ul>
+
+            <!-- LISTA ALLENAMENTO -->
+            <ul v-if="categoriaAttiva.nome === 'Allenamento' ">
+                <li v-for="(item,index) in categorie[1].lista" :id="index" :key="item.id">
+                    <!-- delete icon -->
+                    <span class="delete" title="delete" @click="deleteItem(index); refreshTotal()">
+                        <i class="fa-solid fa-circle-minus"></i>
+                    </span>
+
+                    <!-- testo nella lista -->
+                    <span class="testo-li" :class="item.check === true ? 'sbarrato' : '' " @click="item.check === true ? item.check = false : item.check = true">{{item.nome}} - {{item.prezzoUnit}} &euro;</span>
+                    <!-- check icon -->
+                    <i class="fa-solid fa-circle-check" v-if="item.check === true" title="Ce l'ho"></i>
+                    <!-- cross icon -->
+                    <i class="fa-solid fa-circle-xmark" v-else title="Non ce l'ho"></i>
+                </li>
+            </ul>
+
+            <!-- LISTA ATTIVITA' -->
+            <ul v-if="categoriaAttiva.nome === 'Attività' ">
+                <li v-for="(item,index) in categorie[2].lista" :id="index" :key="item.id">
                     <!-- delete icon -->
                     <span class="delete" title="delete" @click="deleteItem(index); refreshTotal()">
                         <i class="fa-solid fa-circle-minus"></i>

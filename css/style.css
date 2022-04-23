@@ -24,6 +24,17 @@ header > h1{
     font-size:1.8em;
     font-weight: 900;
 }
+/* select */
+#categorie{
+    position: fixed;
+    top: 60px;
+    left: 20px;
+}
+.categorie-label{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
 /* display totale */
 #totalBox{
     position: fixed;
